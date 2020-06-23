@@ -1,41 +1,18 @@
-import React, { Component } from 'react';
-import {Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink} from 'reactstrap';
+import React, { useState } from 'react';
+import {Navbar, Nav} from 'react-bootstrap';
 
-class App extends Component {
-
-	constructor(props) {
-		super(props);
-
-		this.toggle = this.toggle.bind(this);
-        this.state = {
-          isOpen: false
-        };
-	}
-
-	toggle() {
-        this.setState({
-          isOpen: !this.state.isOpen
-        });
-    }
-
-	render() {
-		return (
-			<div id="app">
-			    <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">Java UI Template</NavbarBrand>
-                    <NavbarToggler onClick={this.toggle} />
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink href="/components/">Components</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                </Navbar>
-			</div>
-		)
-	}
-
+export default function App() {
+    return (
+        <div id="app">
+            <Navbar bg="light" expand="md">
+                <Navbar.Brand href="/">Linker</Navbar.Brand>
+                <Navbar.Toggle aria-controls="navbar" />
+                <Navbar.Collapse id="navbar">
+                    <Nav className="ml-auto">
+                        <Nav.Link href="/components/">Components</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+        </div>
+    );
 }
-
-export default App;
